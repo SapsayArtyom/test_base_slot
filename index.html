@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>slot core</title>
+	<style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .game-container {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #1c1e21;
+        }
+
+        #slot-display {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #e7e9ec;
+            border-radius: 10px;
+            border: 2px solid #ccd0d5;
+        }
+
+        .reel-cell {
+            background-color: #fff;
+            font-size: 48px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+            transition: transform 0.2s ease;
+        }
+        
+        .win-line {
+            border: 3px solid #f5a623;
+            transform: scale(1.05);
+        }
+
+        #message-area {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            min-height: 30px;
+            color: #4b4f56;
+        }
+
+        .win-message {
+            color: #28a745;
+            animation: pulse 0.8s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        #spin-button {
+            background: linear-gradient(180deg, #42b72a, #28a745);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        #spin-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #spin-button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        }
+        
+        #spin-button:disabled {
+            background: #a0a0a0;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+	<div class="game-container">
+        <h1>Слот-машина</h1>
+        <div id="slot-display">
+        </div>
+        <div id="message-area">Нажмите "Вращать", чтобы начать!</div>
+        <button id="spin-button">Вращать</button>
+    </div>
+
+	<script type="module" src="Main.js"></script>
+</body>
+</html>
